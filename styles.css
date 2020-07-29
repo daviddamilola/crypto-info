@@ -1,0 +1,157 @@
+/* Some starer styling. Feel free to change anything you like */
+
+body {
+  background-color: rgb(220, 220, 220);
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 1.4;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Oxygen-Sans, Ubuntu, Cantarell, sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  margin: 1rem, 0;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table-n-nav {
+  border-radius: 0.5em;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 8px rgb(170, 169, 169);
+  overflow-x: hidden;
+  width: 70%;
+  background-color: rgb(241, 240, 240);
+}
+table {
+  border-collapse: collapse;
+  text-align: left;
+  width: 100%;
+  min-height: 4rem;
+}
+
+table td,
+table th {
+  padding: 0.6em;
+}
+
+table tr:nth-child(odd) {
+  background-color: rgb(241, 240, 240);
+}
+table tr:nth-child(even) {
+  background-color: #fff;
+}
+thead > tr {
+  background-color: #fff !important;
+}
+
+.nav-elements {
+  display: flex;
+  width: 95%;
+  margin: 0 0.8rem;
+  justify-content: space-between;
+  margin: 0 auto;
+  padding: 0.4rem;
+}
+
+.nav-elements button {
+  text-transform: capitalize;
+  border: none;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  outline: none;
+  padding: 0.2rem 1rem;
+  transform: scale(1.1);
+  background: transparent;
+}
+
+.nav-elements button:focus {
+  border: 1px solid rgb(255, 217, 0);
+}
+.nav-elements button .text {
+  margin: 0;
+  padding: 0;
+}
+
+.show {
+  visibility: visible;
+}
+.hide {
+  visibility: hidden;
+}
+
+.arrow {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+.arrow span {
+  border: 1px solid black;
+  width: 0.4rem;
+  margin-right: 0.2em;
+  position: absolute;
+  transform: rotate(180deg) translate(0.1rem, 0px);
+}
+
+.arrow > .left {
+  transform: translate(0.4rem, 0.4rem);
+}
+
+.arrow > .right {
+  transform: translate(-0.4rem, 0.4rem);
+}
+
+.left > span:nth-child(1) {
+  transform: rotate(40deg) translate(0, -0.17rem);
+}
+
+.left > span:nth-child(3) {
+  transform: rotate(-40deg) translate(0, 0.17rem);
+}
+
+.right > span:nth-child(1) {
+  transform: rotate(-40deg) translate(0, -0.19rem);
+}
+
+.right > span:nth-child(3) {
+  transform: rotate(40deg) translate(0, 0.19rem);
+}
+
+@media screen and (max-width: 750px) {
+  main .table-n-nav {
+    width: 90%;
+    height: 100%;
+  }
+  thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  tbody tr {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  tbody td::before {
+    content: attr(data-label);
+    display: block;
+    font-weight: bold;
+  }
+}
