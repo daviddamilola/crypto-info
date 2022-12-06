@@ -10,8 +10,10 @@ const IFRAME_MESSAGE_TYPE = 'height';
 const MESSAGE_ORIGIN = 'http://localhost:8000/'
 
 window.addEventListener('message', function(event) {
+    console.log('ran at all')
     // Check if the message is from the parent page and is a request for the height of the document
     if (event.origin === MESSAGE_ORIGIN && event.data.type === IFRAME_EVENT_TYPE) {
+        console.log('in the if')
       // Measure the height of the document
       const height = document.documentElement.scrollHeight;
       // Send the height measurement back to the parent page
