@@ -7,7 +7,7 @@
 
 const IFRAME_EVENT_TYPE = 'get-height';
 const IFRAME_MESSAGE_TYPE = 'height';
-const MESSAGE_ORIGIN = 'https://daviddamilola.github.io/crypto-info/'
+const MESSAGE_ORIGIN = 'http://localhost:8000/'
 
 window.addEventListener('message', function(event) {
     // Check if the message is from the parent page and is a request for the height of the document
