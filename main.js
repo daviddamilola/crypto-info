@@ -7,7 +7,7 @@
 
 const IFRAME_EVENT_TYPE = 'get-height';
 const IFRAME_MESSAGE_TYPE = 'height';
-const MESSAGE_ORIGIN = 'http://localhost:8000/'
+const MESSAGE_ORIGIN = "http://localhost:8000"
 
 window.addEventListener('message', function(event) {
     console.log('ran at all',event)
