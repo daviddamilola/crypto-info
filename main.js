@@ -5,6 +5,24 @@
  *    Get 10 coins per "page"
  */
 
+const IFRAME_EVENT_TYPE = 'get-height';
+const IFRAME_MESSAGE_TYPE = 'height';
+const MESSAGE_ORIGIN = 'http://localhost:8000'
+
+window.addEventListener('message', function(event) {
+    // Check if the message is from the parent page and is a request for the height of the document
+    if (event.origin === MESSAGE_ORIGIN && event.data.type === IFRAME_EVENT_TYPE) {
+      // Measure the height of the document
+      const height = document.documentElement.scrollHeight;
+      // Send the height measurement back to the parent page
+      const message = {
+        type: IFRAME_MESSAGE_TYPE,
+        value: height
+      };
+      parent.postMessage(message, MESSAGE_ORIGIN);
+    }
+  });
+
 const loadCoinData = url => {
   return fetch(url)
     .then(res => res.json())
